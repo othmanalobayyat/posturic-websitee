@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ───────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #050a14;
+    color: #f0f4ff;
+    font-family: "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #0a84ff44;
+    color: #f0f4ff;
+  }
+}
+
+/* ─── Component utilities ────────────────────────────────── */
+@layer components {
+  /* Max-width container with consistent horizontal padding */
+  .container-site {
+    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  /* Vertical section rhythm */
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  /* Gradient text — used for headings */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-brand-gradient;
+    -webkit-background-clip: text;
+  }
+
+  /* Glass card — frosted dark panel */
+  .card-glass {
+    @apply bg-bg-surface border border-bg-border rounded-3xl;
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 1px 1px #00000040,
+      0 0 0 1px #1c2e4a;
+  }
+
+  /* Pill badge — for tags like "Coming Soon", "Beta" */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
+           border border-bg-border bg-bg-raised text-text-secondary;
+  }
+
+  /* Brand button — primary CTA */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white
+           bg-brand-blue hover:bg-opacity-90 transition-all duration-200
+           shadow-glow-sm hover:shadow-glow-md;
+  }
+
+  /* Ghost button — secondary CTA */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold
+           border border-bg-border text-text-primary hover:border-brand-blue
+           hover:text-brand-blue transition-all duration-200;
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050a14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2e4a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0a84ff66;
+}
+
+/* ─── Glow orb decoration ────────────────────────────────── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.5;
+}
