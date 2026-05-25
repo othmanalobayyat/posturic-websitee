@@ -39,8 +39,8 @@ const components = [
     subtitle: 'Node.js + Express 5 + WebSocket Hub',
     color: '#0A84FF',
     description:
-      'The central hub deployed on Railway behind Cloudflare. Routes WebSocket frames between all devices in real time, stores session history in Turso (SQLite) and user accounts in MongoDB Atlas, and proxies the Groq AI coach (LLaMA 3.3 70B) for contextual health coaching.',
-    specs: ['WebSocket hub routing', 'JWT authentication', 'Railway deployment', 'Cloudflare TLS/CDN', 'MongoDB Atlas + Turso', 'Groq AI (LLaMA 3.3 70B)'],
+      'A cloud-hosted hub behind Cloudflare. Routes WebSocket frames between all devices in real time, stores session history in Turso (SQLite) and user accounts in MongoDB Atlas, and proxies the Groq AI coach (LLaMA 3.3 70B) for contextual health coaching.',
+    specs: ['WebSocket hub routing', 'JWT authentication', 'Cloud deployment', 'Cloudflare TLS/CDN', 'MongoDB Atlas + Turso', 'Groq AI (LLaMA 3.3 70B)'],
     why: 'A central hub solves the fundamental IoT problem: mobile phones change IP addresses constantly. Every device connects outward to one stable address. The hub provides broadcasting, session persistence, and AI proxy.',
   },
   {

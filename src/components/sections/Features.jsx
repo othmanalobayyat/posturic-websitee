@@ -57,7 +57,7 @@ const features = [
     color: '#32ADE6',
     live: false,
     description: 'Every sitting session is saved with start/end time, duration, posture score, and alert count. Daily summaries and historical charts reveal long-term behavior trends.',
-    detail: 'Stored in Turso (SQLite) on Railway via libsql',
+    detail: 'Stored in Turso (SQLite) cloud via libsql',
     tags: ['Turso SQLite', 'Line charts', 'Session history', 'Daily score'],
     visual: AnalyticsVisual,
   },

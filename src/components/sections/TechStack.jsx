@@ -69,9 +69,9 @@ const stacks = [
     layer: 'Infrastructure',
     color: '#BF5AF2',
     techs: [
-      { name: 'Railway',      role: 'Cloud hosting · containerized Node.js' },
-      { name: 'Cloudflare',   role: 'TLS termination · DNS · DDoS protection' },
-      { name: 'Let\'s Encrypt', role: 'Auto-renewing SSL certificate (posturic.online)' },
+      { name: 'Node.js Server',   role: 'Cloud-hosted production server · smartchair.posturic.online' },
+      { name: 'Cloudflare',       role: 'TLS termination · DNS · DDoS protection' },
+      { name: 'Let\'s Encrypt',   role: 'Auto-renewing SSL certificate (WSS + HTTPS)' },
     ],
   },
 ]

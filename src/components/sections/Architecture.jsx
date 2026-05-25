@@ -122,12 +122,12 @@ function ArchDiagram() {
           <text x="390" y="27" textAnchor="middle" fill="#FF9F0A" fontSize="10" fontFamily="monospace" fontWeight="600">☁ CLOUDFLARE</text>
           <text x="390" y="42" textAnchor="middle" fill="#FF9F0A88" fontSize="8" fontFamily="monospace">TLS termination · DNS · DDoS protection</text>
 
-          {/* Arrow down to Railway */}
+          {/* Arrow down to Server */}
           <path d="M390 52 L390 78" stroke="#FF9F0A44" strokeWidth="1" strokeDasharray="4 3"/>
 
-          {/* Railway/Server box */}
+          {/* Server box */}
           <rect x="220" y="78" width="340" height="90" rx="10" fill="#0A84FF08" stroke="#0A84FF44" strokeWidth="1.5"/>
-          <text x="390" y="98" textAnchor="middle" fill="#0A84FF" fontSize="11" fontFamily="monospace" fontWeight="700">SMARTCHAIRSERVER — RAILWAY</text>
+          <text x="390" y="98" textAnchor="middle" fill="#0A84FF" fontSize="11" fontFamily="monospace" fontWeight="700">SMARTCHAIRSERVER — CLOUD</text>
           <text x="310" y="116" textAnchor="middle" fill="#8B9EC7" fontSize="9" fontFamily="monospace">WebSocket Hub</text>
           <text x="390" y="116" textAnchor="middle" fill="#4A5D7E" fontSize="9" fontFamily="monospace">·</text>
           <text x="460" y="116" textAnchor="middle" fill="#8B9EC7" fontSize="9" fontFamily="monospace">REST API (Express 5)</text>
@@ -199,7 +199,7 @@ function DataFlowTimeline() {
     { ms: '~200ms',  actor: 'Mobile',    action: 'Receives JSON → updates pressure visualization + posture label',   color: '#FF9F0A' },
     { ms: '~220ms',  actor: 'Mobile',    action: 'Checks alert conditions → fires notification if threshold crossed', color: '#FF9F0A' },
     { ms: '~500ms',  actor: 'Camera',    action: 'Sends camera_frame → attention/drowsiness updates on mobile',      color: '#5E5CE6' },
-    { ms: 'Session', actor: 'Mobile',    action: 'Chair idle detected → endSession() → POST to Turso via Railway',   color: '#32ADE6' },
+    { ms: 'Session', actor: 'Mobile',    action: 'Chair idle detected → endSession() → POST to cloud server → saved in Turso',   color: '#32ADE6' },
   ]
   return (
     <div className="rounded-2xl border border-bg-border overflow-hidden" style={{ background: '#060D1E' }}>
