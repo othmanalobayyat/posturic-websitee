@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +6,7 @@
 
 /* ─── Base ───────────────────────────────────────────────── */
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
 
   html {
     scroll-behavior: smooth;
@@ -19,86 +15,198 @@
   }
 
   body {
-    background-color: #050a14;
-    color: #f0f4ff;
-    font-family: "Inter", system-ui, sans-serif;
+    background-color: #050A14;
+    color: #F0F4FF;
+    font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #0a84ff44;
-    color: #f0f4ff;
+    background-color: #0A84FF44;
+    color: #F0F4FF;
   }
 }
 
-/* ─── Component utilities ────────────────────────────────── */
+/* ─── Layout utilities ───────────────────────────────────── */
 @layer components {
-  /* Max-width container with consistent horizontal padding */
   .container-site {
-    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-16;
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-16;
   }
 
-  /* Vertical section rhythm */
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-24 md:py-36;
   }
 
-  /* Gradient text — used for headings */
+  /* ── Text ── */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-brand-gradient;
     -webkit-background-clip: text;
   }
 
-  /* Glass card — frosted dark panel */
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent bg-green-gradient;
+    -webkit-background-clip: text;
+  }
+
+  .text-gradient-indigo {
+    @apply bg-clip-text text-transparent bg-indigo-gradient;
+    -webkit-background-clip: text;
+  }
+
+  /* ── Cards ── */
   .card-glass {
     @apply bg-bg-surface border border-bg-border rounded-3xl;
-    backdrop-filter: blur(12px);
-    box-shadow:
-      0 1px 1px #00000040,
-      0 0 0 1px #1c2e4a;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 1px #00000040, 0 0 0 1px #1C2E4A;
   }
 
-  /* Pill badge — for tags like "Coming Soon", "Beta" */
-  .badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
-           border border-bg-border bg-bg-raised text-text-secondary;
+  .card-glass-hover {
+    @apply card-glass transition-all duration-300;
   }
 
-  /* Brand button — primary CTA */
+  .card-glass-hover:hover {
+    border-color: #2A4A7A;
+    box-shadow: 0 4px 32px #0A84FF14, 0 0 0 1px #2A4A7A;
+    transform: translateY(-2px);
+  }
+
+  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white
-           bg-brand-blue hover:bg-opacity-90 transition-all duration-200
-           shadow-glow-sm hover:shadow-glow-md;
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-white;
+    @apply transition-all duration-200;
+    background: linear-gradient(135deg, #0A84FF, #5E5CE6);
+    box-shadow: 0 0 0 0 #0A84FF00;
   }
 
-  /* Ghost button — secondary CTA */
+  .btn-primary:hover {
+    box-shadow: 0 0 32px #0A84FF44;
+    transform: translateY(-1px);
+  }
+
   .btn-ghost {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold
-           border border-bg-border text-text-primary hover:border-brand-blue
-           hover:text-brand-blue transition-all duration-200;
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold;
+    @apply border border-bg-border text-text-secondary;
+    @apply hover:border-brand-blue hover:text-text-primary;
+    @apply transition-all duration-200;
+  }
+
+  .btn-ghost:hover {
+    background: #0A84FF0A;
+    box-shadow: 0 0 0 1px #0A84FF33;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+    @apply border border-bg-border bg-bg-raised text-text-secondary;
+  }
+
+  .badge-live {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+    @apply text-brand-green;
+    background: #30D15814;
+    border: 1px solid #30D15830;
+  }
+
+  .badge-tech {
+    @apply inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-mono font-medium;
+    @apply bg-bg-raised border border-bg-border text-text-muted;
+  }
+
+  /* ── Section labels ── */
+  .section-label {
+    @apply text-[11px] font-semibold tracking-[0.25em] uppercase text-text-muted;
+  }
+
+  /* ── Grid background ── */
+  .bg-grid {
+    background-image:
+      linear-gradient(#0A84FF07 1px, transparent 1px),
+      linear-gradient(90deg, #0A84FF07 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ── Live dot ── */
+  .live-dot {
+    @apply w-2 h-2 rounded-full bg-brand-green;
+    animation: pulseGlow 2s ease-in-out infinite;
+    box-shadow: 0 0 8px #30D15860;
+  }
+
+  /* ── Connector line ── */
+  .connector {
+    @apply absolute bg-gradient-to-r from-brand-blue to-brand-indigo;
+    height: 1px;
+    opacity: 0.3;
   }
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #050a14;
-}
-::-webkit-scrollbar-thumb {
-  background: #1c2e4a;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #0a84ff66;
-}
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #050A14; }
+::-webkit-scrollbar-thumb { background: #1C2E4A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0A84FF55; }
 
-/* ─── Glow orb decoration ────────────────────────────────── */
+/* ─── Global glow orb ────────────────────────────────────── */
 .glow-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
-  opacity: 0.5;
+}
+
+/* ─── Grain texture ──────────────────────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── Code block style ───────────────────────────────────── */
+.code-block {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: #8B9EC7;
+  background: #0C1526;
+  border: 1px solid #1C2E4A;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+}
+
+.code-block .kw  { color: #5E5CE6; }
+.code-block .str { color: #30D158; }
+.code-block .num { color: #FF9F0A; }
+.code-block .cmt { color: #4A5D7E; font-style: italic; }
+.code-block .fn  { color: #0A84FF; }
+
+/* ─── Floating animation ─────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #30D15840; }
+  50%       { opacity: 0.6; box-shadow: 0 0 18px #30D15880; }
+}
+
+/* ─── SVG flow animation ─────────────────────────────────── */
+.flow-line {
+  stroke-dasharray: 8 6;
+  animation: flowDash 1.5s linear infinite;
+}
+
+.flow-line-slow {
+  stroke-dasharray: 8 6;
+  animation: flowDash 2.5s linear infinite;
+}
+
+@keyframes flowDash {
+  to { stroke-dashoffset: -28; }
 }
